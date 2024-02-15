@@ -205,35 +205,63 @@ Description : DOM Elements.
 		</footer>
 		<script>
 			document.addEventListener('DOMContentLoaded', function afterRender() {
-				// Task 1: Set the text content of all elements with the class 'companyName' and remove their border
 
-
+				// Task 1: Set the text content of all elements with the class 'companyName' and remove their borders
+				document.querySelectorAll('.companyName').forEach(function (element) {
+					element.textContent = "Mahdi";
+					element.style.border = "none";
+				});
+			
 				// Task 2: Change the background color of the navigation bar
+				document.querySelector('nav').style.backgroundColor = "#ccc4ff"; 
+			
+				// Task 3: Hide the section titled "What is full-stack?"
+				document.querySelectorAll('h2').forEach(function(h2) {
+					if (h2.textContent.trim() === "What is full-stack?") {
+						h2.closest('article').style.display = 'none';
+					}
+				});
 				
-
-				// Task 3: Hide the section titled 'What is full-stack?'
-
-
-				// Task 4: Create a new <p> element and append it to the 'About Us' section
-
-
+			
+				// Task 4: Append a new paragraph to the "About Us" section
+				let newParagraph = document.createElement('p');
+				newParagraph.textContent = "This is a new paragraph";
+				newParagraph.style.color = "red";
+				document.querySelector('.container section').appendChild(newParagraph);
+			
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
-
-
-				// Task 6: Set the src attribute of the image
-
-
-				// Task 7: Add a new item in the navigation menu
-
-
-				// Task 8: Change the submit button text upon clicking and make it disabled
-
-
-				// Task 9: Change the text color of each item in the 'Related Links' to green
-
-
-				// Task 10: Add a red solid border to the footer
+				document.querySelectorAll('input').forEach(function (input) {
+					let label = document.querySelector(`label[for="${input.id}"]`);
+					if (label) {
+						input.placeholder = label.textContent;
+					}
+				});
+			
+				// Task 6: Set the src attribute of the image to "./images/example.svg"
+				document.querySelector('img').src = "./images/example.svg";
+			
+				// Task 7: Add a new item "Blog" to the navigation menu
+				let navItem = document.createElement('li');
+				let navLink = document.createElement('a');
+				navLink.href = "#";
+				navLink.textContent = "Blog";
+				navItem.appendChild(navLink);
+				document.querySelector('nav ul').appendChild(navItem);
+			
+				// Task 8: Upon clicking the "Submit" button, change the text to "Submitted" and disable it
+				document.querySelector('input[type="button"]').addEventListener('click', function() {
+					this.value = "Submitted";
+					this.disabled = true;
+				});
+			
+				// Task 9: Change the text color of each item in the "Related Links" aside to green
+				document.querySelectorAll('aside a').forEach(function (link) {
+					link.style.color = "green";
+				});
+			
+				// Task 10: Add a solid red border to the footer
+				document.querySelector('footer').style.border = "2px solid red";
 			});
-		</script>
+			</script>
 	</body>
 </html>
