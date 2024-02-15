@@ -1,3 +1,13 @@
+/*
+=========================================================
+Name        : lab5_exe_D.html
+Assignment  : Lab 5, Exercise D
+Author(s)   : Iraj Akbar
+Submission  : February 14, 2023
+Description : DOM Elements.
+=========================================================
+*/
+
 function generateMatrices() {
     createMatrix('The 1st Matrix', 'matrix1', document.getElementById('matrix1Rows').value, document.getElementById('matrix1Cols').value);
     createMatrix('The 2nd Matrix','matrix2',  document.getElementById('matrix2Rows').value, document.getElementById('matrix2Cols').value);
